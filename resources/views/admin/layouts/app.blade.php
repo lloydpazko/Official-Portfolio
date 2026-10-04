@@ -94,18 +94,17 @@
 
 
             {{-- Website Content --}}
-            <div
-                class="mb-1 flex cursor-not-allowed items-center gap-3 rounded-xl px-3 py-3 text-sm font-medium text-slate-600"
-                title="Coming soon"
+            <a
+                href="{{ route('admin.website-content') }}"
+                class="mb-1 flex items-center gap-3 rounded-xl px-3 py-3 text-sm font-medium transition
+                {{ request()->routeIs('admin.website-content*')
+                    ? 'bg-blue-500/10 text-blue-400'
+                    : 'text-slate-400 hover:bg-white/5 hover:text-white' }}"
             >
                 <span class="text-lg">🌐</span>
 
                 <span>Website Content</span>
-
-                <span class="ml-auto rounded-md bg-white/5 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-slate-600">
-                    Soon
-                </span>
-            </div>
+            </a>
 
 
             {{-- Projects --}}

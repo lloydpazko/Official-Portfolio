@@ -100,7 +100,10 @@ Route::get('/admin/dashboard', [AdminDashboardController::class, 'index'])
     ->name('admin.messages.destroy');
 
     Route::middleware('auth')->prefix('admin')->group(function () {
-
+    // web content
+     Route::get('/website-content', function () {
+        return view('admin.website-content.index');
+    })->name('admin.website-content');
     // Projects
     Route::get('/projects', [AdminProjectController::class, 'index'])
         ->name('admin.projects');
