@@ -32,7 +32,7 @@
 
 
             <p class="text-sm font-semibold uppercase tracking-[0.35em] text-blue-400">
-                Web Developer
+                {{ $subtitle }}
             </p>
 
 
@@ -41,15 +41,14 @@
                 Hello, I'm
 
                 <span class="block bg-gradient-to-r from-blue-400 via-cyan-400 to-purple-400 bg-clip-text text-transparent">
-                    Lloyd Paliuanan.
+                     {{ $title }}
                 </span>
 
             </h1>
 
 
             <p class="mt-7 max-w-2xl text-lg leading-8 text-slate-400 sm:text-xl">
-                I build modern, functional, and user-friendly web applications
-                using PHP, Laravel, MySQL, and modern web technologies.
+                 {{ $description }}
             </p>
 
 

@@ -90,8 +90,8 @@
                         Messages
                     </p>
 
-                    <p class="mt-3 text-3xl font-black text-white">
-                        0
+                    <p class="mt-3 text-3xl font-black text-white">    
+                    0
                     </p>
 
                 </div>

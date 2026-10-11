@@ -28,30 +28,20 @@
     <div class="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
 
         {{-- Home --}}
-        <a
-            href="#"
-            class="group rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition hover:border-blue-500/30 hover:bg-white/[0.05]"
-        >
-            <div class="flex items-start justify-between">
+        <a href="{{ route('admin.website-content.home') }}"
+        class="block rounded-2xl border border-white/10 bg-slate-900 p-6 transition hover:border-blue-500/50 hover:bg-slate-800">
 
-                <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-500/10 text-2xl">
-                    🏠
-                </div>
+            <div class="mb-6 text-2xl">🏠</div>
 
-                <span class="text-slate-600 transition group-hover:text-blue-400">
-                    →
-                </span>
-
-            </div>
-
-            <h2 class="mt-5 text-lg font-bold text-white">
+            <h2 class="mb-3 text-lg font-bold text-white">
                 Home Page
             </h2>
 
-            <p class="mt-2 text-sm leading-6 text-slate-500">
+            <p class="text-sm leading-6 text-slate-400">
                 Manage your hero section, introduction, profile information,
                 and homepage content.
             </p>
+
         </a>
 
 

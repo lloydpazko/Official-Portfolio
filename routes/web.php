@@ -8,29 +8,45 @@ use App\Http\Controllers\AdminMessageController;
 use App\Http\Controllers\AdminProjectController;
 use App\Http\Controllers\AdminAccountController;
 use App\Models\Project;
+use App\Models\WebsiteContent;
 
 // Route::get('/', function () {
-//     return view('welcome');
-    
-// });
+//     $projects = Project::latest()->get();
 
-// Home
-// Route::view('/', 'home')->name('home');
-
-// Route::get('/', function () {
-//     $featuredProjects = Project::where('is_featured', true)
-//         ->latest()
-//         ->take(3)
-//         ->get();
-
-//     return view('home', compact('featuredProjects'));
+//     return view('home', compact('projects'));
 // })->name('home');
 
-Route::get('/', function () {
-    $projects = Project::latest()->get();
+// homepage websitecontent
 
-    return view('home', compact('projects'));
-})->name('home');
+    Route::get('/', function () {
+        $projects = Project::latest()->get();
+
+        $title = WebsiteContent::getValue(
+            'home',
+            'title',
+            'Lloyd Paliuanan'
+        );
+
+        $subtitle = WebsiteContent::getValue(
+            'home',
+            'subtitle',
+            'Web Developer'
+        );
+
+        $description = WebsiteContent::getValue(
+            'home',
+            'description',
+            ''
+        );
+
+        return view('home', compact(
+            'projects',
+            'title',
+            'subtitle',
+            'description'
+        ));
+    })->name('home');
+
 
 // Projects
 Route::get('/projects', function () {
@@ -104,6 +120,19 @@ Route::get('/admin/dashboard', [AdminDashboardController::class, 'index'])
      Route::get('/website-content', function () {
         return view('admin.website-content.index');
     })->name('admin.website-content');
+
+    // website content
+
+    Route::get('/website-content/home', [
+    \App\Http\Controllers\AdminWebsiteContentController::class,
+    'index',
+    ])->name('admin.website-content.home');
+
+    Route::put('/website-content/home', [
+        \App\Http\Controllers\AdminWebsiteContentController::class,
+        'update',
+    ])->name('admin.website-content.home.update');
+
     // Projects
     Route::get('/projects', [AdminProjectController::class, 'index'])
         ->name('admin.projects');
