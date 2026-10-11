@@ -31,11 +31,12 @@
             Update the main title, subtitle, and introduction of your portfolio.
         </p>
 
-        <form
-            action="{{ route('admin.website-content.home.update') }}"
-            method="POST"
-            class="space-y-5"
-        >
+            <form
+                action="{{ route('admin.website-content.home.update') }}"
+                method="POST"
+                enctype="multipart/form-data"
+                class="space-y-5"
+            >
             @csrf
             @method('PUT')
 
@@ -158,6 +159,78 @@
                     maxlength="5000"
                     class="w-full rounded-xl border border-white/10 bg-slate-800 px-4 py-3 text-white"
                 >{{ old('about_paragraph_3', $contents['about_paragraph_3']) }}</textarea>
+            </div>
+
+            
+            {{-- Profile Card Section --}}
+            <div class="border-t border-white/10 pt-6">
+                <h3 class="text-lg font-semibold text-white">
+                    Profile Card
+                </h3>
+
+                <p class="mt-1 text-sm text-slate-400">
+                    Edit the initials, name, and role displayed in your About Me profile card.
+                </p>
+            </div>
+
+            <div>
+                <label class="mb-2 block text-sm text-slate-300">
+                    Profile Initials
+                </label>
+
+                <input
+                    type="text"
+                    name="profile_initials"
+                    value="{{ old('profile_initials', $contents['profile_initials']) }}"
+                    maxlength="10"
+                    class="w-full rounded-xl border border-white/10 bg-slate-800 px-4 py-3 text-white"
+                >
+            </div>
+
+            <div>
+                <label class="mb-2 block text-sm text-slate-300">
+                    Profile Name
+                </label>
+
+                <input
+                    type="text"
+                    name="profile_name"
+                    value="{{ old('profile_name', $contents['profile_name']) }}"
+                    maxlength="255"
+                    class="w-full rounded-xl border border-white/10 bg-slate-800 px-4 py-3 text-white"
+                >
+            </div>
+
+            <div>
+                <label class="mb-2 block text-sm text-slate-300">
+                    Profile Role
+                </label>
+
+                <input
+                    type="text"
+                    name="profile_role"
+                    value="{{ old('profile_role', $contents['profile_role']) }}"
+                    maxlength="255"
+                    class="w-full rounded-xl border border-white/10 bg-slate-800 px-4 py-3 text-white"
+                >
+            </div>
+
+              {{-- Profile Photo Upload --}}
+            <div>
+                <label class="mb-2 block text-sm text-slate-300">
+                    Profile Photo
+                </label>
+
+                <input
+                    type="file"
+                    name="profile_photo"
+                    accept="image/jpeg,image/png,image/webp"
+                    class="w-full rounded-xl border border-white/10 bg-slate-800 px-4 py-3 text-white"
+                >
+
+                <p class="mt-2 text-sm text-slate-400">
+                    Optional. JPG, PNG, or WebP. Maximum file size: 5 MB.
+                </p>
             </div>
 
             <button

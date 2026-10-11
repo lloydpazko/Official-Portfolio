@@ -47,6 +47,82 @@ use App\Models\WebsiteContent;
         ));
     })->name('home');
 
+    Route::get('/', function () {
+    $projects = Project::latest()->get();
+
+    // Home page content
+    $title = WebsiteContent::getValue(
+        'home',
+        'title',
+        'Lloyd Paliuanan'
+    );
+
+    $subtitle = WebsiteContent::getValue(
+        'home',
+        'subtitle',
+        'Web Developer'
+    );
+
+    $description = WebsiteContent::getValue(
+        'home',
+        'description',
+        ''
+    );
+
+    // About Me content
+    $aboutHeading = WebsiteContent::getValue(
+        'about',
+        'heading',
+        'Building things that actually work.'
+    );
+
+    $aboutIntro = WebsiteContent::getValue(
+        'about',
+        'intro',
+        "I'm a web developer focused on creating practical, reliable, and user-friendly web applications."
+    );
+
+    $aboutParagraph1 = WebsiteContent::getValue(
+        'about',
+        'paragraph_1',
+        'I enjoy turning ideas into functional websites and applications. My main focus is backend and full-stack web development, with a strong interest in PHP and Laravel.'
+    );
+
+    $aboutParagraph2 = WebsiteContent::getValue(
+        'about',
+        'paragraph_2',
+        'I work with databases, authentication, CRUD systems, REST APIs, responsive interfaces, and other features needed to build complete web applications.'
+    );
+
+    $aboutParagraph3 = WebsiteContent::getValue(
+        'about',
+        'paragraph_3',
+        "I'm continuously improving my skills by building real projects and exploring modern development tools and technologies."
+    );
+
+    
+    $profileInitials = WebsiteContent::getValue('profile', 'initials', 'LP');
+    $profileName = WebsiteContent::getValue('profile', 'name', 'Lloyd Paliuanan');
+    $profileRole = WebsiteContent::getValue('profile', 'role', 'Web Developer');
+    $profilePhoto = WebsiteContent::getValue('profile', 'photo');
+
+    return view('home', compact(
+        'projects',
+        'title',
+        'subtitle',
+        'description',
+        'aboutHeading',
+        'aboutIntro',
+        'aboutParagraph1',
+        'aboutParagraph2',
+        'aboutParagraph3',
+        'profileInitials',
+        'profileName',
+        'profileRole',
+        'profilePhoto'
+    ));
+    })->name('home');
+
 
 // Projects
 Route::get('/projects', function () {

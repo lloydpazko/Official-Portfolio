@@ -122,9 +122,17 @@
                 {{-- Card Header --}}
                 <div class="flex items-center gap-4">
 
-                    <div class="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-500 text-xl font-black shadow-lg shadow-blue-500/20">
-                        LP
-                    </div>
+                    @if ($profilePhoto)
+                            <img
+                                src="{{ asset('storage/' . $profilePhoto) }}"
+                                alt="{{ $profileName }}"
+                                class="h-12 w-12 rounded-xl object-cover"
+                            >
+                        @else
+                            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-500/10 text-lg font-bold text-blue-400">
+                                {{ $profileInitials }}
+                            </div>
+                        @endif
 
                     <div>
 
@@ -243,15 +251,11 @@
             </p>
 
             <h2 class="mt-4 text-4xl font-black tracking-tight sm:text-5xl">
-                Building things that
-                <span class="text-blue-400">
-                    actually work.
-                </span>
+                {{ $aboutHeading }}
             </h2>
 
             <p class="mt-5 text-lg leading-8 text-slate-400">
-                I'm a web developer focused on creating practical,
-                reliable, and user-friendly web applications.
+                {{ $aboutIntro }}
             </p>
 
         </div>
@@ -269,17 +273,25 @@
 
                     <div class="flex items-center gap-4">
 
+                        @if ($profilePhoto)
+                        <img
+                            src="{{ asset('storage/' . $profilePhoto) }}"
+                            alt="{{ $profileName }}"
+                            class="h-12 w-12 rounded-xl object-cover"
+                        >
+                    @else
                         <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-500/10 text-lg font-bold text-blue-400">
-                            LP
+                            {{ $profileInitials }}
                         </div>
+                    @endif
 
                         <div>
                             <p class="font-semibold">
-                                Lloyd Paliuanan
+                                {{ $profileName }}
                             </p>
 
                             <p class="text-sm text-slate-500">
-                                Web Developer
+                                {{ $profileRole }}
                             </p>
                         </div>
 
@@ -289,21 +301,15 @@
                     <div class="mt-8 space-y-5 text-base leading-8 text-slate-400">
 
                         <p>
-                            I enjoy turning ideas into functional websites and
-                            applications. My main focus is backend and full-stack
-                            web development, with a strong interest in PHP and Laravel.
+                            {{ $aboutParagraph1 }}
                         </p>
 
                         <p>
-                            I work with databases, authentication, CRUD systems,
-                            REST APIs, responsive interfaces, and other features
-                            needed to build complete web applications.
+                            {{ $aboutParagraph2 }}
                         </p>
 
                         <p>
-                            I'm continuously improving my skills by building real
-                            projects and exploring modern development tools and
-                            technologies.
+                            {{ $aboutParagraph3 }}
                         </p>
 
                     </div>
